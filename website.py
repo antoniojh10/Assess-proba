@@ -1,6 +1,6 @@
 from bottle import run, template, static_file, view, Bottle, request, response
 from sys import argv
-import sys
+# import sys
 import random
 import json
 import fit
@@ -224,7 +224,7 @@ def do_upload():
             return {'get_url':  app.get_url, 'success': 'true', 'data': json.dumps(val['data']), 'data_fail': ''}
         else:
             return {'get_url':  app.get_url, 'success': 'false', 'data_fail': val['data'], 'data': ''}
-    except Exception, err:
+    except Exception as err:
         return {'get_url':  app.get_url, 'success': 'false', 'data_fail': traceback.format_exc(), 'data': ''}
 
 
@@ -255,12 +255,12 @@ with open("passwd.txt") as f:
     mdp = f.readline().split(";;")
     print(mdp)
 
-
 # for local or heroku app
 try:
+    print(argv[1])
     if argv[1] == "local":  # for local application, add local param: "$python website.py local"
-        run(app, host='localhost', port=9853, debug=True)
+        run(app, host='0.0.0.0', port=9853, debug=True)
     else:
-        app.run(host='0.0.0.0', port=argv[1])
+        run(app, port=9853)
 except:
-    print "You need to specify an argument (local for local testing: $python website.py local)"
+    print("You need to specify an argument (local for local testing: $python website.py local)")

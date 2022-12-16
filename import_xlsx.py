@@ -111,6 +111,6 @@ def importation(file):
 
         os.remove(file)
         return {'success':True, 'data':mySession}
-    except Exception, err:
+    except Exception as err:
         os.remove(file)
         return {'success':False, 'data':traceback.format_exc()}

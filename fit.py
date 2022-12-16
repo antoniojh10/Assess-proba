@@ -261,4 +261,4 @@ def multipoints(liste_cord):
     return {"data": liste_dictionnaires}
 
 
-print regressions([[70,0.7],[80,0.8],[90,0.9],[50,0.0],[100,1.0]],False)
+print(regressions([[70,0.7],[80,0.8],[90,0.9],[50,0.0],[100,1.0]],False))
