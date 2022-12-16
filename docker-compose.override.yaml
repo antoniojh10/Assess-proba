@@ -1,0 +1,9 @@
+version: '3.7'
+
+services:
+  assess-proba:
+    command: python3 website.py local
+    ports:
+      - "9853:9853"
+    volumes:
+      - .:/usr/src/app

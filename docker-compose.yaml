@@ -1,0 +1,10 @@
+version: '3.7'
+
+services:
+  assess-proba:
+    build: .
+    command: python3 website.py
+    environment:
+      ASSESS_PORT: 9853
+    ports:
+      - "$ASSESS_PORT:9853"
